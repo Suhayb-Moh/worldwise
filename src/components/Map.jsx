@@ -1,6 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import styles from "./Map.module.css";
+import { useNavigate } from "react-router-dom";
 import {
   MapContainer,
   TileLayer,
@@ -9,12 +7,15 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import { useCities } from "../context/CitiesContext";
-import { useGeolocation } from "../hooks/useGeoLocation";
-import Button from "./Button";
-import { useUrlPosition } from "../hooks/useUrlPosition";
 
-const Map = () => {
+import styles from "./Map.module.css";
+import { useEffect, useState } from "react";
+import { useCities } from "../context/CitiesContext";
+import { useGeolocation } from "../hooks/useGeolocation";
+import { useUrlPosition } from "../hooks/useUrlPosition";
+import Button from "./Button";
+
+function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const {
@@ -46,8 +47,8 @@ const Map = () => {
           {isLoadingPosition ? "Loading..." : "Use your position"}
         </Button>
       )}
+
       <MapContainer
-        // center={[mapLat, mapLng]}
         center={mapPosition}
         zoom={6}
         scrollWheelZoom={true}
@@ -63,9 +64,7 @@ const Map = () => {
             key={city.id}
           >
             <Popup>
-              <span>
-                {city.emoji} <span>{city.cityName}</span>
-              </span>
+              <span>{city.emoji}</span> <span>{city.cityName}</span>
             </Popup>
           </Marker>
         ))}
@@ -75,23 +74,20 @@ const Map = () => {
       </MapContainer>
     </div>
   );
-};
+}
 
-const ChangeCenter = ({ position }) => {
+function ChangeCenter({ position }) {
   const map = useMap();
   map.setView(position);
   return null;
-};
+}
 
-const DetectClick = () => {
+function DetectClick() {
   const navigate = useNavigate();
 
   useMapEvents({
-    click: (e) => {
-      console.log(e);
-      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
-    },
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
-};
+}
 
 export default Map;
