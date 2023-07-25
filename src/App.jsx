@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import { CitiesProvider, useCities } from "./context/CitiesContext";
+import { CitiesProvider } from "./context/CitiesContext";
 
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
@@ -10,8 +10,6 @@ import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
-
-const BASE_URL = "http://localhost:9000";
 
 const App = () => {
   return (

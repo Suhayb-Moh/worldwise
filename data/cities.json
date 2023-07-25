@@ -35,6 +35,30 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Borama",
+      "country": "Somalia",
+      "emoji": "🇸🇴",
+      "date": "2027-02-12T09:24:11.863Z",
+      "notes": "Amazing Mountains 🏔️⛰️🗻",
+      "position": {
+        "lat": 9.938078483977767,
+        "lng": 43.18347930908204
+      },
+      "id": 4503538
+    },
+    {
+      "cityName": "Alland",
+      "country": "Austria",
+      "emoji": "🇦🇹",
+      "date": "2023-07-25T11:44:49.561Z",
+      "notes": "i like it",
+      "position": {
+        "lat": "48.05972528178409",
+        "lng": "16.067504882812504"
+      },
+      "id": 98443200
     }
   ]
 }
